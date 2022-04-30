@@ -36,7 +36,6 @@ namespace AnimaTechAPI.Services
                     default:
                         break;
                 }
-                throw new Exception(message);
                 return false;
             }
             finally

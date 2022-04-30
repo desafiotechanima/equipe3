@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: localhost    Database: masterclass
+-- Host: localhost    Database: animatech
 -- ------------------------------------------------------
 -- Server version	8.0.28
 
@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cidades`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `cidades`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cidades` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `uf` char(2) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `usuario` (
+  `IDUsuario` int NOT NULL AUTO_INCREMENT,
+  `Email` varchar(255) NOT NULL,
+  `Nome` varchar(255) NOT NULL,
+  `Senha` varchar(255) NOT NULL,
+  PRIMARY KEY (`IDUsuario`),
+  UNIQUE KEY `Email` (`Email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cidades`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `cidades` WRITE;
-/*!40000 ALTER TABLE `cidades` DISABLE KEYS */;
-INSERT INTO `cidades` VALUES (1,'Santos','SP'),(2,'Rio grande do Sul','RS');
-/*!40000 ALTER TABLE `cidades` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'app@gmail.com','Marcelo','123456'),(2,'teste@gmail.com','Marelso','123456');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-30 13:10:24
+-- Dump completed on 2022-04-30 17:35:51

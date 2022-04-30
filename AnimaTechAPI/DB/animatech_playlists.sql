@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: localhost    Database: masterclass
+-- Host: localhost    Database: animatech
 -- ------------------------------------------------------
 -- Server version	8.0.28
 
@@ -16,34 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pessoas`
+-- Table structure for table `playlists`
 --
 
-DROP TABLE IF EXISTS `pessoas`;
+DROP TABLE IF EXISTS `playlists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pessoas` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(128) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `telefone` varchar(20) DEFAULT NULL,
-  `criado_em` datetime DEFAULT CURRENT_TIMESTAMP,
-  `cidade_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  KEY `cidade_id` (`cidade_id`),
-  CONSTRAINT `pessoas_ibfk_1` FOREIGN KEY (`cidade_id`) REFERENCES `cidades` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `playlists` (
+  `IDPlaylist` int NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(255) NOT NULL,
+  `Descricao` varchar(255) NOT NULL,
+  PRIMARY KEY (`IDPlaylist`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pessoas`
+-- Dumping data for table `playlists`
 --
 
-LOCK TABLES `pessoas` WRITE;
-/*!40000 ALTER TABLE `pessoas` DISABLE KEYS */;
-INSERT INTO `pessoas` VALUES (1,'klein.marcelojr@gmail.com','Marcelo','51986549768','2022-04-30 10:03:16',NULL),(2,'klein.mahjr@gmail.com','Marcelo','51986549768','2022-04-30 10:04:55',1);
-/*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
+LOCK TABLES `playlists` WRITE;
+/*!40000 ALTER TABLE `playlists` DISABLE KEYS */;
+INSERT INTO `playlists` VALUES (1,'PlaylistTeste','Descrição da playlist de teste.'),(2,'PlaylistTeste1','Descrição da playlist de teste1.'),(3,'string','string');
+/*!40000 ALTER TABLE `playlists` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-30 13:10:24
+-- Dump completed on 2022-04-30 17:35:49
