@@ -67,5 +67,19 @@ namespace AnimaTechAPI.Services
 
             return Posts;
         }
+        public Publicacao Post(Publicacao post)
+        {
+            string query = string.Format($"SELECT Nome, Email, Senha FROM Publicacao Where Titulo = '{post.Titulo}'");
+            DataTable data = _context.ConsultaQuery(query);
+            if (data.Rows.Count <= 0)
+            {
+                query = string.Format($"INSERT INTO Usuario(Titulo, ImgPublicacao, Duracao) Values('{post.Titulo}', '{post.Imagem}', '{post.Duracao}');");
+                if (_context.ExecutarQuery(query))
+                {
+                    return post;
+                }
+            }
+            return null;
+        }
     }
 }
