@@ -46,6 +46,28 @@ namespace AnimaTechAPI.Services
             return null;
         }
 
+        public Usuario UpdateUser(Usuario user)
+        {
+            string query = string.Format($"SELECT Nome, Email, Senha FROM Usuario Where Email = '{user.Email}'");
+            DataTable data = _context.ConsultaQuery(query);
+            if (data.Rows.Count <= 0)
+                return null;
+            else
+            {
+                query = string.Format($"Update Usuario Set Senha = '{user.Senha}' Where Email = '{user.Email}'");
+                if (_context.ExecutarQuery(query))
+                    return null;
+                else
+                {
+                    var usuario = new Usuario();
+                    usuario.Nome = user.Nome;
+                    usuario.Email = user.Email;
+                    usuario.Senha = user.Senha;
+                    return usuario;
+                }                    
+            }
+        }
+
         public List<Publicacao> GetAll()
         {
             var Posts = new List<Publicacao>();
