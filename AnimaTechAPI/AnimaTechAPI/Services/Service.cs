@@ -46,6 +46,21 @@ namespace AnimaTechAPI.Services
             return null;
         }
 
+        public Playlist PostPlaylist(Playlist playlist)
+        {
+            string query = string.Format($"SELECT Nome, Descricao FROM Playlists Where Nome = '{playlist.Nome}'");
+            DataTable data = _context.ConsultaQuery(query);
+            if (data.Rows.Count <= 0)
+            {
+                query = string.Format($"INSERT INTO Playlists (Nome, Descricao) Values('{playlist.Nome}', '{playlist.Descricao}');");
+                if (_context.ExecutarQuery(query))
+                {
+                    return playlist;
+                }
+            }
+            return null;
+        }
+        
         public Usuario UpdateUser(Usuario user)
         {
             string query = string.Format($"SELECT Nome, Email, Senha FROM Usuario Where Email = '{user.Email}'");

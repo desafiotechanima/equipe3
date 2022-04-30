@@ -19,5 +19,14 @@ namespace AnimaTechAPI.Controllers
                 return BadRequest("Nenhuma playlist encontrada.");
             return Ok(playlists);
         }
+        [HttpPost]
+        public ActionResult Post([FromBody] Playlist playlist)
+        {
+            var play = _service.PostPlaylist(playlist);
+            if (play == null)
+                return BadRequest("Dados fora do padrão desejado ou playlist já existente.\n " + JsonConvert.SerializeObject(playlist));
+            else
+                return Ok("Playlist cadastrada com sucesso.\n " + JsonConvert.SerializeObject(play.Nome));
+        }
     }
 }
