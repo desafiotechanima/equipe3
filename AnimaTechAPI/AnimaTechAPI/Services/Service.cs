@@ -68,6 +68,26 @@ namespace AnimaTechAPI.Services
             }
         }
 
+        public List<Playlist> GetPlaylists()
+        {
+            var lista = new List<Playlist>();
+            string query = string.Format($"SELECT Nome, Descricao FROM Playlists");
+            DataTable data = _context.ConsultaQuery(query);
+            if (data.Rows.Count <= 0)
+                return null;
+            else
+            {
+                foreach (DataRow item in data.Rows)
+                {
+                    var playlist = new Playlist();
+                    playlist.Nome = item[0].ToString();
+                    playlist.Descricao = item[1].ToString();
+                    lista.Add(playlist);
+                }
+                return lista;
+            }
+        }
+
         public List<Publicacao> GetAll()
         {
             var Posts = new List<Publicacao>();

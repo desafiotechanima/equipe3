@@ -30,5 +30,17 @@ namespace AnimaTechAPI.Controllers
             else
                 return Ok("Usuario cadastrado com sucesso.\n " + JsonConvert.SerializeObject(usuario.Email));
         }
+
+        [HttpPut]
+        public ActionResult ResetPass([FromBody] Usuario user)
+        {
+            if (string.IsNullOrEmpty(user.Nome) || string.IsNullOrEmpty(user.Email))
+                return BadRequest("Os dados fornecidos estão incompletos.\n " + JsonConvert.SerializeObject(user));
+            else
+            {
+                var usuario = _service.UpdateUser(user);
+                return Ok($"Senha atualizada com sucesso para o usuário {user.Nome}");
+            }
+        }
     }
 }
