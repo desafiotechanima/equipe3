@@ -16,30 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuario`
+-- Table structure for table `playlists`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `playlists`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `IDUsuario` int NOT NULL AUTO_INCREMENT,
-  `Email` varchar(255) NOT NULL,
+CREATE TABLE `playlists` (
+  `IDPlaylist` int NOT NULL AUTO_INCREMENT,
   `Nome` varchar(255) NOT NULL,
-  `Senha` varchar(255) NOT NULL,
-  PRIMARY KEY (`IDUsuario`),
-  UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `Descricao` varchar(255) NOT NULL,
+  PRIMARY KEY (`IDPlaylist`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `playlists`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'app@gmail.com','Marcelo','123456'),(2,'teste@gmail.com','Marelso','123456');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `playlists` WRITE;
+/*!40000 ALTER TABLE `playlists` DISABLE KEYS */;
+INSERT INTO `playlists` VALUES (1,'PlaylistTeste','Descrição da playlist de teste.'),(2,'PlaylistTeste1','Descrição da playlist de teste1.'),(3,'string','string');
+/*!40000 ALTER TABLE `playlists` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-30 17:35:51
+-- Dump completed on 2022-04-30 17:35:49
